@@ -1,0 +1,920 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>M:SEVEN | Luxury Fashion Studio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--gold:#c9a45d;
+--gold2:#f0d59b;
+--black:#080808;
+--muted:#999;
+--line:#ffffff15;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+background:var(--black);color:#fff;
+font-family:Montserrat,sans-serif;
+overflow-x:hidden
+}
+body::-webkit-scrollbar{width:5px}
+body::-webkit-scrollbar-thumb{background:var(--gold)}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+img{display:block;max-width:100%}
+::selection{background:var(--gold);color:#080808}
+
+/* NAVIGATION */
+header{
+position:fixed;inset:0 0 auto;height:76px;z-index:1000;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 6%;background:#080808c9;
+backdrop-filter:blur(20px);
+border-bottom:1px solid var(--line)
+}
+.logo{
+font:500 27px "Cormorant Garamond",serif;
+letter-spacing:5px;white-space:nowrap
+}
+.logo span{color:var(--gold)}
+nav{display:flex;align-items:center;gap:30px}
+nav a{
+font-size:9px;letter-spacing:2px;color:#aaa;
+transition:.3s
+}
+nav a:hover{color:var(--gold)}
+.nav-book{
+padding:13px 17px;border:1px solid #c9a45d77;
+color:var(--gold)
+}
+.menu{
+display:none;background:none;border:0;
+color:var(--gold);font-size:25px;cursor:pointer
+}
+
+/* HERO */
+.hero{
+height:100svh;min-height:720px;position:relative;
+display:flex;align-items:center;justify-content:center;
+overflow:hidden;isolation:isolate;
+perspective:1400px;
+background:radial-gradient(ellipse at 50% 45%,#292015 0%,#100e0b 34%,#050505 75%)
+}
+.hero:after{
+content:"";position:absolute;inset:0;z-index:-1;
+background:linear-gradient(90deg,#0005,transparent 50%,#0005)
+}
+.hero-grid{
+position:absolute;z-index:-1;width:150%;height:55%;
+bottom:-20%;left:-25%;
+background-image:linear-gradient(#c9a45d20 1px,transparent 1px),
+linear-gradient(90deg,#c9a45d20 1px,transparent 1px);
+background-size:55px 55px;
+transform:perspective(500px) rotateX(62deg);
+mask-image:linear-gradient(to top,#000,transparent)
+}
+.ambient{
+position:absolute;width:400px;height:400px;
+border-radius:50%;background:var(--gold);
+filter:blur(150px);opacity:.12;pointer-events:none
+}
+.ambient.a{top:10%;left:8%}
+.ambient.b{right:8%;bottom:0;opacity:.09}
+.orbit{
+position:absolute;width:min(65vw,650px);aspect-ratio:1;
+border:1px solid #c9a45d36;border-radius:50%;
+transform:rotateX(68deg) rotateZ(-20deg);
+animation:orbit 24s linear infinite;
+pointer-events:none
+}
+.orbit:before,.orbit:after{
+content:"";position:absolute;inset:9%;
+border:1px solid #ffffff12;border-radius:50%
+}
+.orbit:after{inset:22%;border-color:#c9a45d20}
+.orbit-dot{
+position:absolute;top:9%;left:50%;
+width:13px;height:13px;border-radius:50%;
+background:var(--gold2);box-shadow:0 0 35px var(--gold);
+}
+@keyframes orbit{
+to{transform:rotateX(68deg) rotateZ(340deg)}
+}
+.hero-content{
+position:relative;z-index:3;text-align:center;
+transform-style:preserve-3d;padding:20px;
+transition:transform .12s ease-out
+}
+.eyebrow{
+color:var(--gold);font-size:9px;letter-spacing:7px;
+margin-bottom:30px
+}
+.hero h1{
+font:300 clamp(75px,13vw,170px)/.85 "Cormorant Garamond",serif;
+letter-spacing:-6px;text-shadow:0 20px 90px #000
+}
+.hero h1 span{color:var(--gold);font-style:italic}
+.hero-desc{
+max-width:450px;margin:32px auto 30px;
+font-size:11px;line-height:2;color:#aaa;letter-spacing:.5px
+}
+.btn{
+display:inline-flex;align-items:center;justify-content:center;
+gap:20px;padding:16px 23px;
+border:1px solid #c9a45d85;color:#fff;
+font-size:9px;letter-spacing:3px;
+transition:background .35s,color .35s,border .35s;
+cursor:pointer;background:transparent
+}
+.btn .line{
+width:32px;height:1px;background:var(--gold);
+transition:.3s
+}
+.btn:hover{background:var(--gold);color:#080808}
+.btn:hover .line{background:#080808;width:45px}
+.float{
+position:absolute;z-index:5;padding:15px 19px;
+background:#111111bb;border:1px solid #ffffff1c;
+backdrop-filter:blur(15px);
+font-size:8px;line-height:2;letter-spacing:2px;
+box-shadow:0 20px 60px #0007;
+animation:float 5s ease-in-out infinite
+}
+.float strong{color:var(--gold);font-weight:400}
+.f1{right:9%;top:27%}
+.f2{left:8%;bottom:25%;animation-delay:-2s}
+.f3{right:13%;bottom:16%;animation-delay:-3s}
+@keyframes float{
+0%,100%{translate:0 0}
+50%{translate:0 -12px}
+}
+.side-label{
+position:absolute;right:28px;top:40%;
+writing-mode:vertical-rl;
+font-size:8px;letter-spacing:4px;color:#666
+}
+.scroll{
+position:absolute;bottom:28px;left:6%;
+display:flex;align-items:center;gap:15px;
+font-size:8px;letter-spacing:3px;color:#777
+}
+.scroll i{width:45px;height:1px;background:var(--gold)}
+
+/* COMMON SECTIONS */
+.section{padding:130px 7%;position:relative}
+.label{
+font-size:9px;letter-spacing:5px;
+color:var(--gold);margin-bottom:22px
+}
+.big{
+font:300 clamp(53px,7vw,94px)/.9 "Cormorant Garamond",serif;
+letter-spacing:-1px
+}
+.big span{color:var(--gold);font-style:italic}
+.muted{
+font-size:11px;line-height:2.2;color:#858585;
+max-width:460px
+}
+.section-head{
+display:flex;align-items:end;justify-content:space-between;
+gap:35px;margin-bottom:65px
+}
+.section-head .muted{max-width:310px}
+
+/* STUDIO GALLERY */
+.intro{
+display:grid;grid-template-columns:1fr 1fr;
+gap:70px;align-items:center
+}
+.gallery{
+margin-top:85px;display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:24px;perspective:1200px
+}
+.gallery-card{
+height:430px;position:relative;overflow:hidden;
+background:#151515;border:1px solid #ffffff13;
+transform-style:preserve-3d;
+transition:transform .5s,border-color .4s;
+box-shadow:0 30px 70px #0008
+}
+.gallery-card:nth-child(1){transform:rotateY(8deg) rotateX(2deg)}
+.gallery-card:nth-child(2){transform:translateY(-24px) translateZ(35px)}
+.gallery-card:nth-child(3){transform:rotateY(-8deg) rotateX(2deg)}
+.gallery-card img{
+width:100%;height:100%;object-fit:cover;
+filter:brightness(.72);transition:transform .8s,filter .6s
+}
+.gallery-card:hover{
+transform:translateY(-12px) rotateY(0) rotateX(0) translateZ(35px);
+border-color:#c9a45d77;z-index:3
+}
+.gallery-card:hover img{transform:scale(1.09);filter:brightness(.95)}
+.gallery-card:after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(transparent 35%,#000d)
+}
+.gallery-info{position:absolute;z-index:2;bottom:25px;left:22px}
+.gallery-info small{
+font-size:8px;letter-spacing:3px;color:var(--gold)
+}
+.gallery-info h3{
+font:400 35px "Cormorant Garamond",serif;margin-top:5px
+}
+
+/* 3D COLLECTION */
+.collection{
+background:linear-gradient(180deg,#0b0b0b,#10100e,#090909);
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line);
+overflow:hidden
+}
+.collection:before{
+content:"";position:absolute;top:10%;left:40%;
+width:400px;height:400px;background:#c9a45d;
+filter:blur(200px);opacity:.055;pointer-events:none
+}
+.filters{
+display:flex;gap:10px;flex-wrap:wrap;margin-bottom:38px
+}
+.filter{
+border:1px solid #ffffff20;background:transparent;color:#888;
+padding:12px 17px;font-size:8px;letter-spacing:2px;
+cursor:pointer;transition:.3s
+}
+.filter.active,.filter:hover{
+border-color:var(--gold);color:var(--gold);background:#c9a45d0d
+}
+.products{
+display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+gap:28px;perspective:1400px
+}
+.product-wrap{min-width:0;perspective:1000px}
+.product{
+height:490px;position:relative;overflow:hidden;
+background:linear-gradient(145deg,#1a1711,#090909);
+border:1px solid #ffffff18;
+transform-style:preserve-3d;
+transition:transform .16s ease-out,border-color .4s,box-shadow .4s;
+box-shadow:0 20px 55px #0005;
+will-change:transform
+}
+.product:hover{
+border-color:#c9a45d80;
+box-shadow:0 30px 70px #000b,0 0 35px #c9a45d0a
+}
+.product:before{
+content:"";position:absolute;z-index:2;inset:0;
+background:linear-gradient(120deg,transparent 25%,#ffffff12 45%,transparent 60%);
+transform:translateX(-120%);transition:transform .8s;
+pointer-events:none
+}
+.product:hover:before{transform:translateX(120%)}
+.product-img{
+width:100%;height:100%;object-fit:cover;
+filter:brightness(.76);
+transition:transform .7s,filter .5s;
+}
+.product:hover .product-img{
+transform:scale(1.08) translateZ(15px);filter:brightness(.95)
+}
+.product:after{
+content:"";position:absolute;inset:0;z-index:1;
+background:linear-gradient(180deg,#0003 0%,transparent 35%,#000e 100%);
+pointer-events:none
+}
+.product-number{
+position:absolute;z-index:3;top:20px;left:20px;
+font:300 27px "Cormorant Garamond",serif;color:var(--gold)
+}
+.product-tag{
+position:absolute;z-index:3;top:23px;right:18px;
+border:1px solid #c9a45d75;background:#0909098a;
+padding:8px 10px;color:var(--gold2);
+font-size:7px;letter-spacing:2px
+}
+.product-info{
+position:absolute;z-index:3;left:23px;right:18px;bottom:25px;
+transform:translateZ(35px)
+}
+.product-info small{
+font-size:8px;letter-spacing:3px;color:var(--gold)
+}
+.product-info h3{
+font:400 35px "Cormorant Garamond",serif;margin:7px 0
+}
+.product-info p{font-size:9px;color:#bbb;line-height:1.8}
+.product-bottom{
+display:flex;align-items:center;justify-content:space-between;
+gap:10px;margin-top:17px;padding-top:15px;
+border-top:1px solid #ffffff35
+}
+.product-bottom span{font-size:8px;letter-spacing:2px;color:#aaa}
+.product-bottom a{
+font-size:8px;letter-spacing:2px;color:var(--gold);
+border-bottom:1px solid #c9a45d66;padding-bottom:5px
+}
+.product-bottom a:hover{color:#fff}
+.product-wrap.hidden{display:none}
+
+/* CRAFT */
+.philosophy{
+display:grid;grid-template-columns:1fr 1fr;
+gap:90px;align-items:center
+}
+.craft-frame{
+height:580px;position:relative;perspective:1200px;
+padding:0 30px 30px 0
+}
+.craft-frame:before{
+content:"";position:absolute;inset:25px 0 0 30px;
+border:1px solid #c9a45d70;
+transform:rotateY(-8deg) rotateZ(2deg);
+transition:.5s
+}
+.craft-frame img{
+position:relative;z-index:1;width:100%;height:100%;
+object-fit:cover;filter:brightness(.75);
+transform:rotateY(8deg);transition:transform .6s,filter .6s;
+box-shadow:25px 30px 70px #0009
+}
+.craft-frame:hover img{
+transform:rotateY(0) translateZ(25px);filter:brightness(.95)
+}
+.craft-frame:hover:before{transform:rotateY(0) rotateZ(0)}
+.stats{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:15px;margin-top:45px
+}
+.stat{border-top:1px solid #ffffff20;padding-top:17px}
+.stat strong{
+font:400 37px "Cormorant Garamond",serif;color:var(--gold)
+}
+.stat span{
+display:block;font-size:7px;letter-spacing:1.5px;
+line-height:1.8;color:#777;margin-top:8px
+}
+
+/* STATEMENT */
+.quote{
+text-align:center;padding:145px 7%;
+background:radial-gradient(ellipse at center,#282014 0%,#0b0a08 48%,#080808 78%);
+border-top:1px solid #ffffff0b;border-bottom:1px solid #ffffff0b
+}
+.quote p{
+font:300 clamp(44px,7vw,86px)/.98 "Cormorant Garamond",serif;
+font-style:italic
+}
+.quote p span{color:var(--gold)}
+.quote small{
+display:block;margin-top:35px;
+font-size:8px;letter-spacing:5px;color:#777
+}
+
+/* CONTACT */
+.contact{text-align:center;overflow:hidden}
+.contact .big{font-size:clamp(55px,9vw,115px)}
+.contact .muted{margin:30px auto}
+.contact .btn{margin-top:5px}
+.contact-glow{
+position:absolute;z-index:-1;width:350px;height:250px;
+left:50%;top:45%;transform:translate(-50%,-50%);
+background:var(--gold);filter:blur(160px);opacity:.09
+}
+
+/* FOOTER */
+footer{
+padding:32px 6%;display:flex;justify-content:space-between;
+align-items:center;gap:20px;flex-wrap:wrap;
+border-top:1px solid var(--line);
+color:#666;font-size:8px;letter-spacing:2px
+}
+footer strong{color:var(--gold);font-weight:400}
+footer a:hover{color:var(--gold)}
+
+/* REVEAL ANIMATION */
+.reveal{
+opacity:0;transform:translateY(35px);
+transition:opacity .9s ease,transform .9s ease
+}
+.reveal.show{opacity:1;transform:translateY(0)}
+.delay1{transition-delay:.12s}
+.delay2{transition-delay:.22s}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+header{padding:0 4%}
+nav{gap:18px}
+.section{padding:100px 5%}
+.products{gap:16px}
+.product{height:430px}
+.gallery-card{height:350px}
+.philosophy{gap:45px}
+.f1{right:4%}.f2{left:4%}
+}
+@media(max-width:760px){
+header{height:68px}
+.menu{display:block}
+nav{
+display:none;position:absolute;top:68px;left:0;width:100%;
+padding:25px;gap:25px;flex-direction:column;
+align-items:center;background:#090909f5;
+border-bottom:1px solid var(--line)
+}
+nav.open{display:flex}
+.hero{min-height:760px}
+.hero h1{font-size:clamp(65px,13vw,100px);letter-spacing:-4px}
+.eyebrow{font-size:8px;letter-spacing:4px}
+.orbit{width:85vw}
+.float{font-size:7px;padding:11px 12px}
+.f1{top:18%;right:3%}
+.f2{bottom:19%;left:3%}
+.f3{bottom:10%;right:4%}
+.side-label{display:none}
+.section-head{align-items:start;flex-direction:column;gap:20px}
+.intro,.philosophy{grid-template-columns:1fr;gap:40px}
+.gallery{gap:12px;margin-top:55px}
+.gallery-card{height:310px}
+.gallery-info{left:12px;bottom:16px}
+.gallery-info h3{font-size:25px}
+.gallery-info small{font-size:6px;letter-spacing:1px}
+.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.product{height:390px}
+.product-info{left:14px;right:12px;bottom:16px}
+.product-info h3{font-size:28px}
+.product-info p{font-size:8px}
+.product-number{left:13px;top:14px}
+.product-tag{right:10px;top:16px;font-size:6px}
+.product-bottom{margin-top:11px;padding-top:10px}
+.product-bottom span,.product-bottom a{font-size:7px;letter-spacing:1px}
+.craft-frame{height:480px}
+.quote{padding:110px 6%}
+footer{justify-content:center;text-align:center}
+}
+@media(max-width:450px){
+.hero{min-height:730px}
+.hero h1{font-size:64px;letter-spacing:-3px}
+.hero-desc{font-size:10px;padding:0 10px}
+.orbit{width:92vw}
+.f1{top:14%}.f2{bottom:18%}.f3{bottom:9%}
+.section{padding:85px 5%}
+.big{font-size:53px}
+.gallery{gap:8px}
+.gallery-card{height:245px}
+.gallery-info h3{font-size:21px}
+.gallery-info small{font-size:5px}
+.products{grid-template-columns:1fr;gap:25px}
+.product{height:480px}
+.product-info h3{font-size:34px}
+.craft-frame{height:400px;padding-right:15px}
+.stats{gap:8px}
+.stat strong{font-size:31px}
+.stat span{font-size:6px}
+}
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{
+animation-duration:.01ms!important;
+animation-iteration-count:1!important;
+scroll-behavior:auto!important;
+transition-duration:.01ms!important
+}
+.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="#home" class="logo">M:<span>SEVEN</span></a>
+
+<nav id="navigation">
+<a href="#home">HOME</a>
+<a href="#studio">STUDIO</a>
+<a href="#collection">COLLECTION</a>
+<a href="#craft">CRAFTSMANSHIP</a>
+<a href="#contact" class="nav-book">BOOK A VISIT</a>
+</nav>
+
+<button class="menu" id="menuBtn" aria-label="Toggle navigation"
+aria-expanded="false">☰</button>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+<div class="ambient a"></div>
+<div class="ambient b"></div>
+<div class="hero-grid"></div>
+
+<div class="orbit" id="orbit">
+<div class="orbit-dot"></div>
+</div>
+
+<div class="hero-content" id="heroContent">
+<div class="eyebrow">THE FASHION DESIGNING STUDIO</div>
+<h1>M:<span>SEVEN</span></h1>
+<p class="hero-desc">
+Where Indian heritage meets modern design.
+A world of couture, craftsmanship and
+unforgettable silhouettes.
+</p>
+<a href="#collection" class="btn">
+EXPLORE THE COLLECTION <i class="line"></i>
+</a>
+</div>
+
+<div class="float f1">
+01 / SIGNATURE<br>
+<strong>BRIDAL COUTURE</strong>
+</div>
+
+<div class="float f2">
+DESIGNED WITH CARE<br>
+<strong>CRAFTED IN INDIA</strong>
+</div>
+
+<div class="float f3">
+EST. 2026<br>
+<strong>VADODARA</strong>
+</div>
+
+<div class="side-label">COUTURE · CULTURE · CREATION</div>
+<div class="scroll"><i></i> SCROLL TO DISCOVER</div>
+</section>
+
+<section class="section reveal" id="studio">
+<div class="intro">
+<div>
+<div class="label">01 / OUR WORLD</div>
+<h2 class="big">FASHION<br><span>WITHOUT<br>LIMITS.</span></h2>
+</div>
+<p class="muted">
+M:SEVEN is a fashion designing studio built around
+one simple idea — every outfit deserves its own identity.
+From bridal couture to contemporary silhouettes, we bring
+traditional Indian craftsmanship together with modern
+aesthetics to create timeless designs.
+</p>
+</div>
+
+<div class="gallery">
+<article class="gallery-card">
+<img loading="lazy"
+src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=85"
+alt="Elegant bridal fashion">
+<div class="gallery-info">
+<small>01 / BRIDAL</small>
+<h3>Royal Bride</h3>
+</div>
+</article>
+
+<article class="gallery-card">
+<img loading="lazy"
+src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=85"
+alt="Indian ethnic fashion">
+<div class="gallery-info">
+<small>02 / HERITAGE</small>
+<h3>Tradition</h3>
+</div>
+</article>
+
+<article class="gallery-card">
+<img loading="lazy"
+src="https://images.unsplash.com/photo-1583391733981-849840a8d0e8?auto=format&fit=crop&w=700&q=85"
+alt="Contemporary designer style">
+<div class="gallery-info">
+<small>03 / DESIGNER</small>
+<h3>Elegance</h3>
+</div>
+</article>
+</div>
+</section>
+
+<section class="section collection reveal" id="collection">
+<div class="section-head">
+<div>
+<div class="label">02 / THE COLLECTION</div>
+<h2 class="big">THE NEW<br><span>SILHOUETTES.</span></h2>
+</div>
+<p class="muted">
+A curated world of bridal, ethnic and contemporary
+fashion for moments that deserve to be remembered.
+</p>
+</div>
+
+<div class="filters" id="filters">
+<button class="filter active" data-filter="all">ALL DESIGNS</button>
+<button class="filter" data-filter="bridal">BRIDAL</button>
+<button class="filter" data-filter="designer">DESIGNER WEAR</button>
+<button class="filter" data-filter="ethnic">ETHNIC</button>
+</div>
+
+<div class="products">
+
+<article class="product-wrap reveal" data-category="bridal">
+<div class="product" data-tilt>
+<div class="product-number">01</div>
+<div class="product-tag">SIGNATURE</div>
+<img class="product-img" loading="lazy"
+src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=85"
+alt="Bridal couture design">
+<div class="product-info">
+<small>BRIDAL COUTURE</small>
+<h3>Royal Heritage</h3>
+<p>Handcrafted · Bespoke · Timeless</p>
+<div class="product-bottom">
+<span>MADE TO MEASURE</span>
+<a href="#contact">ENQUIRE ↗</a>
+</div>
+</div>
+</div>
+</article>
+
+<article class="product-wrap reveal delay1" data-category="designer">
+<div class="product" data-tilt>
+<div class="product-number">02</div>
+<div class="product-tag">NEW EDITION</div>
+<img class="product-img" loading="lazy"
+src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=85"
+alt="Designer fashion outfit">
+<div class="product-info">
+<small>DESIGNER WEAR</small>
+<h3>Modern Muse</h3>
+<p>Contemporary · Elegant · Refined</p>
+<div class="product-bottom">
+<span>PERSONAL STYLING</span>
+<a href="#contact">ENQUIRE ↗</a>
+</div>
+</div>
+</div>
+</article>
+
+<article class="product-wrap reveal delay2" data-category="ethnic">
+<div class="product" data-tilt>
+<div class="product-number">03</div>
+<div class="product-tag">TIMELESS</div>
+<img class="product-img" loading="lazy"
+src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=85"
+alt="Ethnic fashion design">
+<div class="product-info">
+<small>ETHNIC EDIT</small>
+<h3>Indian Soul</h3>
+<p>Culture · Craft · Expression</p>
+<div class="product-bottom">
+<span>TRADITION REIMAGINED</span>
+<a href="#contact">ENQUIRE ↗</a>
+</div>
+</div>
+</div>
+</article>
+
+<article class="product-wrap reveal" data-category="bridal">
+<div class="product" data-tilt>
+<div class="product-number">04</div>
+<div class="product-tag">COUTURE</div>
+<img class="product-img" loading="lazy"
+src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=85"
+alt="Luxury fashion editorial">
+<div class="product-info">
+<small>BRIDAL EDIT</small>
+<h3>Golden Hour</h3>
+<p>Graceful · Refined · Individual</p>
+<div class="product-bottom">
+<span>CUSTOM DESIGN</span>
+<a href="#contact">ENQUIRE ↗</a>
+</div>
+</div>
+</div>
+</article>
+
+<article class="product-wrap reveal delay1" data-category="designer">
+<div class="product" data-tilt>
+<div class="product-number">05</div>
+<div class="product-tag">EXCLUSIVE</div>
+<img class="product-img" loading="lazy"
+src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=85"
+alt="Contemporary fashion editorial">
+<div class="product-info">
+<small>CONTEMPORARY</small>
+<h3>Modern Grace</h3>
+<p>Minimal · Distinctive · Modern</p>
+<div class="product-bottom">
+<span>DESIGNER STYLING</span>
+<a href="#contact">ENQUIRE ↗</a>
+</div>
+</div>
+</div>
+</article>
+
+<article class="product-wrap reveal delay2" data-category="ethnic">
+<div class="product" data-tilt>
+<div class="product-number">06</div>
+<div class="product-tag">HERITAGE</div>
+<img class="product-img" loading="lazy"
+src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85"
+alt="Fashion collection editorial">
+<div class="product-info">
+<small>ETHNIC COLLECTION</small>
+<h3>Pure Elegance</h3>
+<p>Artistry · Texture · Character</p>
+<div class="product-bottom">
+<span>MADE FOR YOU</span>
+<a href="#contact">ENQUIRE ↗</a>
+</div>
+</div>
+</div>
+</article>
+
+</div>
+</section>
+
+<section class="section philosophy reveal" id="craft">
+<div class="craft-frame">
+<img loading="lazy"
+src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85"
+alt="Fashion styling and craftsmanship">
+</div>
+
+<div>
+<div class="label">03 / CRAFTSMANSHIP</div>
+<h2 class="big">CRAFT<br><span>MEETS SOUL.</span></h2>
+<p class="muted" style="margin-top:28px">
+Every M:SEVEN creation begins with an idea. Fabric,
+embroidery, colour and texture come together through
+careful design and attention to detail.
+The result is more than an outfit. It is a piece of
+your story, designed to express who you are.
+</p>
+
+<div class="stats">
+<div class="stat">
+<strong>15+</strong>
+<span>YEARS OF CRAFT</span>
+</div>
+<div class="stat">
+<strong>120+</strong>
+<span>DESIGNS CREATED</span>
+</div>
+<div class="stat">
+<strong>100%</strong>
+<span>PERSONAL TOUCH</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="quote reveal">
+<p>
+“Your outfit should not<br>
+<span>follow the moment.</span><br>
+It should create it.”
+</p>
+<small>THE M:SEVEN PHILOSOPHY</small>
+</section>
+
+<section class="section contact reveal" id="contact">
+<div class="contact-glow"></div>
+<div class="label">04 / YOUR PRIVATE STUDIO</div>
+<h2 class="big">CREATE YOUR<br><span>ICONIC LOOK.</span></h2>
+<p class="muted">
+Discover custom designing, bridal couture and
+personalised fashion experiences at M:SEVEN.
+Let's create something that feels uniquely yours.
+</p>
+<a href="https://wa.me/919999999999?text=Hello%20M%3ASEVEN%2C%20I%20would%20like%20to%20book%20a%20fashion%20consultation."
+target="_blank" rel="noopener noreferrer" class="btn">
+BOOK AN APPOINTMENT <i class="line"></i>
+</a>
+</section>
+
+</main>
+
+<footer>
+<div>© 2026 <strong>M:SEVEN</strong></div>
+<div>THE FASHION DESIGNING STUDIO</div>
+<div>VADODARA · INDIA</div>
+<a href="#home">BACK TO TOP ↑</a>
+</footer>
+
+<script>
+/* MOBILE NAVIGATION */
+const menuBtn=document.getElementById("menuBtn");
+const navigation=document.getElementById("navigation");
+
+menuBtn.addEventListener("click",()=>{
+const open=navigation.classList.toggle("open");
+menuBtn.setAttribute("aria-expanded",String(open));
+menuBtn.textContent=open?"✕":"☰";
+});
+
+navigation.querySelectorAll("a").forEach(link=>{
+link.addEventListener("click",()=>{
+navigation.classList.remove("open");
+menuBtn.setAttribute("aria-expanded","false");
+menuBtn.textContent="☰";
+});
+});
+
+/* HERO 3D MOUSE MOVEMENT */
+const hero=document.querySelector(".hero");
+const heroContent=document.getElementById("heroContent");
+const orbit=document.getElementById("orbit");
+const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if(!reduceMotion && window.matchMedia("(pointer:fine)").matches){
+hero.addEventListener("pointermove",e=>{
+const r=hero.getBoundingClientRect();
+const x=(e.clientX-r.left)/r.width-.5;
+const y=(e.clientY-r.top)/r.height-.5;
+heroContent.style.transform=
+`rotateY(${x*9}deg) rotateX(${-y*7}deg) translateZ(25px)`;
+orbit.style.translate=`${x*15}px ${y*12}px`;
+});
+hero.addEventListener("pointerleave",()=>{
+heroContent.style.transform="";
+orbit.style.translate="";
+});
+}
+
+/* PRODUCT 3D TILT */
+if(!reduceMotion && window.matchMedia("(pointer:fine)").matches){
+document.querySelectorAll("[data-tilt]").forEach(card=>{
+card.addEventListener("pointermove",e=>{
+const r=card.getBoundingClientRect();
+const x=(e.clientX-r.left)/r.width;
+const y=(e.clientY-r.top)/r.height;
+const rotateY=(x-.5)*12;
+const rotateX=(.5-y)*10;
+card.style.transform=
+`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.015,1.015,1.015)`;
+});
+card.addEventListener("pointerleave",()=>{
+card.style.transform="";
+});
+});
+}
+
+/* 3D GALLERY TILT */
+if(!reduceMotion && window.matchMedia("(pointer:fine)").matches){
+document.querySelectorAll(".gallery-card").forEach(card=>{
+card.addEventListener("pointermove",e=>{
+const r=card.getBoundingClientRect();
+const x=(e.clientX-r.left)/r.width-.5;
+const y=(e.clientY-r.top)/r.height-.5;
+card.style.transform=
+`perspective(1000px) rotateY(${x*12}deg) rotateX(${-y*8}deg) translateY(-8px) translateZ(25px)`;
+});
+card.addEventListener("pointerleave",()=>{
+card.style.transform="";
+});
+});
+}
+
+/* COLLECTION FILTERS */
+const filterButtons=document.querySelectorAll(".filter");
+const productItems=document.querySelectorAll(".product-wrap");
+
+filterButtons.forEach(button=>{
+button.addEventListener("click",()=>{
+filterButtons.forEach(b=>b.classList.remove("active"));
+button.classList.add("active");
+const selected=button.dataset.filter;
+
+productItems.forEach(item=>{
+const match=selected==="all"||item.dataset.category===selected;
+item.classList.toggle("hidden",!match);
+});
+});
+});
+
+/* SCROLL REVEAL */
+const revealItems=document.querySelectorAll(".reveal");
+
+if("IntersectionObserver" in window){
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+observer.unobserve(entry.target);
+}
+});
+},{threshold:.08,rootMargin:"0px 0px -30px 0px"});
+
+revealItems.forEach(item=>observer.observe(item));
+}else{
+revealItems.forEach(item=>item.classList.add("show"));
+}
+</script>
+
+</body>
+</html>
